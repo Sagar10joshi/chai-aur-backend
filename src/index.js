@@ -26,3 +26,12 @@ const app = express();
         console.log(" DATABASE connection FAILED",error);
     }
 })()
+
+.then(()=>{
+    app.listen(process.env.PORT || 8000 , ()=>{
+        console.log(`Server connected to PORT : ${process.env.PORT}`);
+    })
+})
+.catch((err)=>{
+    console.log('MONGO DB connection ERROR' , err);
+})
